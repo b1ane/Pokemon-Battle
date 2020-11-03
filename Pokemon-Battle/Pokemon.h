@@ -27,7 +27,7 @@ public:
     int setHealth(int shealth);
     //when Electro Ball is used - MewTwo gets confused
     //"yes" = is confused, "no" = not confused
-    int setIsConfused(int num);
+    bool setIsConfused(bool val);
     
     void setMoves(string move1, int damage1, string move2, int damage2, string move3, int damage3);
     

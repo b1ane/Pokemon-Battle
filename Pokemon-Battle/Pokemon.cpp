@@ -31,9 +31,10 @@ int Pokemon::setHealth(int shealth) {
     return health;
 }
 
-int Pokemon::setIsConfused(int num) {
-    isConfused = num;
-    return num;
+bool Pokemon::setIsConfused(bool val) {
+    isConfused = val;
+    return isConfused;
+    //return isConfused;
 }
 
 void Pokemon::setMoves(string move1, int damage1, string move2, int damage2, string move3, int damage3) {
@@ -53,22 +54,17 @@ int Pokemon::getHealth() const {
 }
 
 bool Pokemon::getIsConfused() {
-    if (isConfused == 1) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return isConfused;
 }
 
 //FIX THIS !!!!!!!!!
 void Pokemon::move(int index, Pokemon& target) {
-//    for (index = 0; index < 3; index++) {
-//        target.setHealth(target.health + Moves[index].damage);
-//    }
-    
     if (index == 0) {
         target.setHealth(target.health + Moves[index].damage);
+    }
+    //electroball is used, mewtwo gets confused
+    if (index == 1) {
+        target.setIsConfused(true);
     }
     
     
