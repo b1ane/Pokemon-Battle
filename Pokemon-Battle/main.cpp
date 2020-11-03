@@ -6,9 +6,50 @@
 //
 
 #include <iostream>
+#include <string>
+#include "Pokemon.h"
+#include "Move.h"
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    // pokemon objects
+    Pokemon Pikachu("Pikachu");
+    Pokemon Mewtwo("Mewtwo");
+    int select;
+    
+    while (true) {
+        //mewtwo attacks pikachu, only 1 move available
+        Mewtwo.move(0, Pikachu);
+        //update health of Pikchu
+        Pikachu.getHealth();
+        
+        
+        //pikachu displays moves
+        Pikachu.displayMoves();
+        //user selects move from display
+        cin >> select;
+        //pikachu attacks mewtwo
+        Pikachu.move(select, Mewtwo);
+        
+        Mewtwo.getHealth();
+        
+        if (Pikachu.getHealth() > Mewtwo.getHealth()) {
+            cout << "You win!";
+        }
+        
+        if (Mewtwo.getHealth() > Pikachu.getHealth()) {
+            cout << "You lose:(";
+        }
+        
+        
+        
+    
+    }
+    
+    
+    
+    
+    
+    
     return 0;
 }
