@@ -15,38 +15,43 @@ int main(int argc, const char * argv[]) {
     // pokemon objects
     Pokemon Pikachu("Pikachu");
     Pokemon Mewtwo("Mewtwo");
-    int select;
+    string select;
     
-    while (true) {
+    
+    
+    while ( (Pikachu.getHealth() < 0) || Mewtwo.getHealth() > 0) {
         //mewtwo attacks pikachu, only 1 move available
         //pikachu does not fight back
-        Mewtwo.move(0, Pikachu);
-        
+        if (Mewtwo.getIsConfused() == false) {
+            Mewtwo.move(0, Pikachu);
+        }
+       // Mewtwo.move(0, Pikachu);
+        Mewtwo.setIsConfused(false);
         
         //pikachu displays moves
         Pikachu.displayMoves();
         //user selects move from display
-        cin >> select;
-        //pikachu attacks mewtwo
-        Pikachu.move(select, Mewtwo);
-        
-        
-        if (Pikachu.getHealth() > Mewtwo.getHealth()) {
-            cout << "You win!";
+        getline(cin, select);
+        if (select == "Thunderbolt") {
+            Pikachu.move(0, Mewtwo);
+        }
+        if (select == "Electro Ball") {
+            Pikachu.move(1, Mewtwo);
+        }
+        if (select == "Quick Attack") {
+            Pikachu.move(2, Mewtwo);
         }
         
-        if (Mewtwo.getHealth() > Pikachu.getHealth()) {
-            cout << "You lose:(";
-        }
-        
-        
-        
-    
+
     }
     
-    
-    
-    
+    if (Pikachu.getHealth() > Mewtwo.getHealth()) {
+        cout << "You win";
+            }
+            
+    if (Mewtwo.getHealth() > Pikachu.getHealth()) {
+        cout << "You lose";
+            }
     
     
     return 0;

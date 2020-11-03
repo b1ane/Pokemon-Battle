@@ -17,12 +17,12 @@ Pokemon::Pokemon(string setName) {
     if (setName == "Pikachu") {
         setHealth(274);
         //set available attacks for pikachu
-        setMoves("Thunderbolt", -125, "Electroball", 0, "Quick Attack", -90);
+        setMoves("Thunderbolt", -125, "Electro Ball", 0, "Quick Attack", -90);
     }
     
     if (setName == "Mewtwo") {
         setHealth(322);
-        setMoves("Pyscho Cut", -90, "", 0, "", 0);
+        setMoves("Psycho Cut", -90, "", 0, "", 0);
     }
 }
 
@@ -61,14 +61,18 @@ bool Pokemon::getIsConfused() {
 void Pokemon::move(int index, Pokemon& target) {
     if (index == 0) {
         target.setHealth(target.health + Moves[index].damage);
+        cout << name << " used " << Moves[index].name << endl;
     }
     //electroball is used, mewtwo gets confused
     if (index == 1) {
         target.setIsConfused(true);
+        cout << name << " used " << Moves[index].name << endl;
+        cout << "It confused " << target.name << "!" << endl;
     }
     
     if (index == 2) {
         target.setHealth(target.health + Moves[index].damage);
+        cout << name << " used " << Moves[index].name << endl;
     }
     
     
@@ -76,7 +80,7 @@ void Pokemon::move(int index, Pokemon& target) {
 
 //displays available moves
 void Pokemon::displayMoves() {
-    cout << Moves[0].name << Moves[1].name << Moves[2].name << endl;
+    cout << Moves[0].name << ", " << Moves[1].name << ", or " << Moves[2].name << endl;
 }
 
 
