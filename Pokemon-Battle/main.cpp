@@ -19,9 +19,10 @@ int main(int argc, const char * argv[]) {
     
     while (true) {
         //mewtwo attacks pikachu, only 1 move available
+        //pikachu does not fight back
         Mewtwo.move(0, Pikachu);
         //update health of Pikchu
-        Pikachu.getHealth();
+        //Pikachu.getHealth();
         
         
         //pikachu displays moves
@@ -31,7 +32,7 @@ int main(int argc, const char * argv[]) {
         //pikachu attacks mewtwo
         Pikachu.move(select, Mewtwo);
         
-        Mewtwo.getHealth();
+        //Mewtwo.getHealth();
         
         if (Pikachu.getHealth() > Mewtwo.getHealth()) {
             cout << "You win!";

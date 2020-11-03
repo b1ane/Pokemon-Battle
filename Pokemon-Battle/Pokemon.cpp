@@ -63,8 +63,12 @@ bool Pokemon::getIsConfused() {
 
 //FIX THIS !!!!!!!!!
 void Pokemon::move(int index, Pokemon& target) {
-    for (index = 0; index < 3; index++) {
-        target.setHealth(Moves[index].damage + target.getHealth());
+//    for (index = 0; index < 3; index++) {
+//        target.setHealth(target.health + Moves[index].damage);
+//    }
+    
+    if (index == 0) {
+        target.setHealth(target.health + Moves[index].damage);
     }
     
     
