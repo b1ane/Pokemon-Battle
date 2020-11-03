@@ -18,15 +18,21 @@ int main(int argc, const char * argv[]) {
     string select;
     
     
-    
-    while ( (Pikachu.getHealth() < 0) || Mewtwo.getHealth() > 0) {
+    // health of both pokemons must be greater than 0 for loop to execute
+    while ( (Pikachu.getHealth() > 0) && Mewtwo.getHealth() > 0) {
         //mewtwo attacks pikachu, only 1 move available
         //pikachu does not fight back
         if (Mewtwo.getIsConfused() == false) {
             Mewtwo.move(0, Pikachu);
+            if (Mewtwo.getHealth() <= 0) {
+                break;
+            }
+            if (Pikachu.getHealth() <= 0) {
+                break;
+            }
         }
-       // Mewtwo.move(0, Pikachu);
         Mewtwo.setIsConfused(false);
+        
         
         //pikachu displays moves
         Pikachu.displayMoves();
@@ -45,11 +51,11 @@ int main(int argc, const char * argv[]) {
 
     }
     
-    if (Pikachu.getHealth() > Mewtwo.getHealth()) {
+    if (Pikachu.getHealth() > Mewtwo.getHealth() ) {
         cout << "You win";
             }
             
-    if (Mewtwo.getHealth() > Pikachu.getHealth()) {
+    if (Pikachu.getHealth() < Mewtwo.getHealth() ) {
         cout << "You lose";
             }
     

@@ -60,19 +60,22 @@ bool Pokemon::getIsConfused() {
 //FIX THIS !!!!!!!!!
 void Pokemon::move(int index, Pokemon& target) {
     if (index == 0) {
-        target.setHealth(target.health + Moves[index].damage);
+        //target.setHealth(target.health + Moves[index].damage);
         cout << name << " used " << Moves[index].name << endl;
+        target.setHealth(target.health + Moves[index].damage);
     }
     //electroball is used, mewtwo gets confused
     if (index == 1) {
         target.setIsConfused(true);
         cout << name << " used " << Moves[index].name << endl;
         cout << "It confused " << target.name << "!" << endl;
+        target.setHealth(target.health + Moves[index].damage);
     }
     
     if (index == 2) {
-        target.setHealth(target.health + Moves[index].damage);
+        //target.setHealth(target.health + Moves[index].damage);
         cout << name << " used " << Moves[index].name << endl;
+        target.setHealth(target.health + Moves[index].damage);
     }
     
     
