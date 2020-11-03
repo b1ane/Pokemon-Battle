@@ -67,6 +67,10 @@ void Pokemon::move(int index, Pokemon& target) {
         target.setIsConfused(true);
     }
     
+    if (index == 2) {
+        target.setHealth(target.health + Moves[index].damage);
+    }
+    
     
 }
 
